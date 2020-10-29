@@ -25,15 +25,17 @@ dependencies:
 $ flutter pub get
 ```
 
-3. Follow the Appodeal installation instructions available for [iOS](https://wiki.appodeal.com/en/ios/2-7-3-beta-ios-sdk-integration-guide) and [Android](https://wiki.appodeal.com/en/android/2-7-3-beta-android-sdk-integration-guide). However, ignore the steps to include the Appodeal SDK dependencies in Gradle (Android) and Cocoapods (iOS) since these steps will be done by this package.
+3. Follow the Appodeal installation instructions available for [iOS](https://wiki.appodeal.com/en/ios/2-8-0-beta-ios-sdk-integration) and [Android](https://wiki.appodeal.com/en/android/2-8-0-beta-android-sdk-integration-guide). However, ignore the steps to include the Appodeal SDK dependencies in Gradle (Android) and Cocoapods (iOS) since these steps will be done by this package.
 
-### Extra step for Android only
+### Extra steps for Android only
 
 4. The Appodeal framework includes mutiple libraries from different ad providers, so it's very likely that the inclusion of this plugin in your project will make it exceed to 64K limit method count of Android. To solve this problem you need to enable multidex in your project; follow the instructions [here](https://developer.android.com/studio/build/multidex) to learn how to do that.
 
+5. Your Android project must use Gradle 4.0.1 or greater. If you are using an older version, please upgrade it by editing the file `android/build.gradle`.
+
 ### Extra step for iOS 14+ only
 
-4. Follow the instructions available [here](https://wiki.appodeal.com/en/ios/2-7-3-beta-ios-sdk-integration-guide/ios-14+-support) to learn how to implement the permission request to track users, but ignore the part to include some code in the `AppDelegate` file. This code is already included in this plugin and it will be executed when you call the function `Appodeal.requestIOSTrackingAuthorization()`, before the initialization of Appodeal (see below).
+4. Follow the instructions available [here](https://wiki.appodeal.com/en/ios/2-8-0-beta-ios-sdk-integration/ios-14+-support) to learn how to implement the permission request to track users, but ignore the part to include some code in the `AppDelegate` file. This code is already included in this plugin and it will be executed when you call the function `Appodeal.requestIOSTrackingAuthorization()`, before the initialization of Appodeal (see below).
 
 ## 📱 Usage
 
