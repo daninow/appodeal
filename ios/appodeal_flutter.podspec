@@ -18,20 +18,18 @@ A Flutter plugin to display ads from Appodeal; it supports the new reqs for iOS 
   s.platform = :ios, '10.0'
   s.static_framework = true
 
-  # Appodeal Dependencies
-  s.dependency 'APDAdColonyAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDAmazonAdsAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDAppLovinAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDBidMachineAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDFacebookAudienceAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDGoogleAdMobAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDIronSourceAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDMyTargetAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDOguryAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDSmaatoAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDStartAppAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDUnityAdapter', '2.9.0.0-Beta'
-  s.dependency 'APDVungleAdapter', '2.9.0.0-Beta'
+  # Appodeal Dependencies only Banner + Interstitial
+  s.dependency 'APDAmazonAdsAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDAppLovinAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDBidMachineAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDFacebookAudienceAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDGoogleAdMobAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDIronSourceAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDMyTargetAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDOguryAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDSmaatoAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDStartAppAdapter', '2.9.0.0-Beta' 
+  s.dependency 'APDUnityAdapter', '2.9.0.0-Beta' 
   s.dependency 'APDYandexAdapter', '2.9.0.0-Beta'
 
   # Optional adapter

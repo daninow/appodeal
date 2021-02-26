@@ -2,9 +2,6 @@ PODS:
   - AdColony (4.4.1.1)
   - AmazonAd (3.1.0)
   - AmazonPublisherServicesSDK (3.3.0)
-  - APDAdColonyAdapter (2.9.0.0-Beta):
-    - AdColony (= 4.4.1.1)
-    - Appodeal (= 2.9.0-Beta)
   - APDAmazonAdsAdapter (2.9.0.0-Beta):
     - AmazonAd (= 3.1.0)
     - Appodeal (= 2.9.0-Beta)
@@ -88,9 +85,6 @@ PODS:
   - APDUnityAdapter (2.9.0.0-Beta):
     - Appodeal (= 2.9.0-Beta)
     - UnityAds (= 3.6.0)
-  - APDVungleAdapter (2.9.0.0-Beta):
-    - Appodeal (= 2.9.0-Beta)
-    - VungleSDK-iOS (= 6.9.1)
   - APDYandexAdapter (2.9.0.0-Beta):
     - Appodeal (= 2.9.0-Beta)
     - YandexMobileAds (= 3.4.0)
@@ -101,7 +95,6 @@ PODS:
     - StackIAB (~> 1.2.0)
     - StackModules (~> 1.0.3)
   - appodeal_flutter (0.3.2):
-    - APDAdColonyAdapter (= 2.9.0.0-Beta)
     - APDAmazonAdsAdapter (= 2.9.0.0-Beta)
     - APDAppLovinAdapter (= 2.9.0.0-Beta)
     - APDBidMachineAdapter (= 2.9.0.0-Beta)
@@ -113,7 +106,6 @@ PODS:
     - APDSmaatoAdapter (= 2.9.0.0-Beta)
     - APDStartAppAdapter (= 2.9.0.0-Beta)
     - APDUnityAdapter (= 2.9.0.0-Beta)
-    - APDVungleAdapter (= 2.9.0.0-Beta)
     - APDYandexAdapter (= 2.9.0.0-Beta)
     - Flutter
     - StackConsentManager (= 1.0.1)
@@ -275,7 +267,6 @@ SPEC REPOS:
     - AdColony
     - AmazonAd
     - AmazonPublisherServicesSDK
-    - APDAdColonyAdapter
     - APDAmazonAdsAdapter
     - APDAppLovinAdapter
     - APDBidMachineAdapter
@@ -287,7 +278,6 @@ SPEC REPOS:
     - APDSmaatoAdapter
     - APDStartAppAdapter
     - APDUnityAdapter
-    - APDVungleAdapter
     - APDYandexAdapter
     - AppLovinSDK
     - Appodeal
@@ -327,7 +317,6 @@ SPEC CHECKSUMS:
   AdColony: a655685ae4a62eb8d6ddffa5fc1436858872a9e7
   AmazonAd: 9adf416ea36ca2325ce2040c0cf124f071089904
   AmazonPublisherServicesSDK: 12ec8a797b49796f2714d5f99235370e24bf93e6
-  APDAdColonyAdapter: 7a564bc643ae3d556aa1d61843874edd4807ff0c
   APDAmazonAdsAdapter: 9ce8446a2b0045fefeb41077ba7e74216c2b9833
   APDAppLovinAdapter: d3cb9105878af4e7d29dd196d2493f782a40be87
   APDBidMachineAdapter: 908f271bbc6d659b2915d50d1ed4c86705b9b1c0
@@ -339,11 +328,10 @@ SPEC CHECKSUMS:
   APDSmaatoAdapter: 2576154fd87de7e773dfdc83ce54c8993b1dc282
   APDStartAppAdapter: 81875722850422aaec905c2f3513cdd0b938f478
   APDUnityAdapter: 178876c4a423af9cfe2ad35f376ffa066ab45f2b
-  APDVungleAdapter: 4d2ee75e41a50870fc8b6028271cf6f5485d5cf9
   APDYandexAdapter: d66632935ac1a6e279d156f8e8e638a31f31f15f
   AppLovinSDK: 768397bbd5cb5ec1179ba32a17f06ff119ebcffe
   Appodeal: 3b3c8696811235b1a6fc22c369cf4b7ab6fc3234
-  appodeal_flutter: c26e5eff8fb58f6799c679e709b04418228881d0
+  appodeal_flutter: ce2bd2976666fc1209a373ab90fcbffe8b0ebffe
   AppRollSDK: bd9e96ad026dd51ad07714a35d43da95bb882d5f
   BidMachine: 5aff266fee79f0aa49cf41bae86ae280df1a0974
   CriteoPublisherSdk: a7551daf9235203a040703504ae549e842b5eebf
