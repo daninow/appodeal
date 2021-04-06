@@ -4,7 +4,7 @@
 [![Pub Version](https://img.shields.io/pub/v/appodeal_flutter?color=blue)](https://pub.dev/packages/appodeal_flutter)
 [![ISC License](https://img.shields.io/npm/l/vimdb?color=important)](LICENSE)
 
-A Flutter plugin to display ads from Appodeal. It currently supports __Banner__, __Interstitial__, __Reward__ and __Non-Skippable__ ads.
+A Flutter plugin to display ads from Appodeal. It currently supports **Banner**, **Interstitial**, **Reward** and **Non-Skippable** ads.
 
 ## 📽 Demo
 
@@ -25,7 +25,7 @@ dependencies:
 $ flutter pub get
 ```
 
-3. Follow the Appodeal installation instructions available for [iOS](https://wiki.appodeal.com/en/ios/2-8-0-beta-ios-sdk-integration) and [Android](https://wiki.appodeal.com/en/android/2-8-0-beta-android-sdk-integration-guide). However, ignore the steps to include the Appodeal SDK dependencies in Gradle (Android) and Cocoapods (iOS) since these steps will be done by this package.
+3. Follow the Appodeal installation instructions available for [iOS](https://wiki.appodeal.com/en/ios/2-9-1-ios-sdk-integration-guide) and [Android](https://wiki.appodeal.com/en/android/2-9-1-android-sdk-integration-guide). However, ignore the steps to include the Appodeal SDK dependencies in Gradle (Android) and Cocoapods (iOS) since these steps will be done by this package.
 
 ### Extra steps for Android only
 
@@ -35,7 +35,40 @@ $ flutter pub get
 
 ### Extra step for iOS 14+ only
 
-4. Follow the instructions available [here](https://wiki.appodeal.com/en/ios/2-8-0-beta-ios-sdk-integration/ios-14+-support) to learn how to implement the permission request to track users, but ignore the part to include some code in the `AppDelegate` file. This code is already included in this plugin and it will be executed when you call the function `Appodeal.requestIOSTrackingAuthorization()`, before the initialization of Appodeal (see below).
+4. Follow the instructions available [here](https://wiki.appodeal.com/en/ios/ios-14-network-support) to learn how to implement the permission request to track users, but ignore the part to include some code in the `AppDelegate` file. This code is already included in this plugin and it will be executed when you call the function `Appodeal.requestIOSTrackingAuthorization()`, before the initialization of Appodeal (see below).
+
+### If you don't use AdMob
+
+This plugin comes with all possible ad networks supported by Appodeal enabled by default. I made this decision to give more flexibility to the developers using this project, but this comes with a drawback: if you don't intend to use **Google AdMob** in your app, then you are still forced to add a fake application ID in your project otherwise AdMob will make the app crash if it doesn't find an ID 😬
+
+To add this fake AdMob ID (again, only if you don't intend to use AdMob, otherwise you should use your real AdMob identifier) you must:
+
+#### Android
+
+Edit the file `android/app/src/main/AndroidManifest.xml` and add this into the `<application>` tag:
+
+```xml
+<application ...>
+    ...
+    <meta-data
+        android:name="com.google.android.gms.ads.APPLICATION_ID"
+        android:value="ca-app-pub-0000000000000000~0000000000" />
+    ...
+</application>
+```
+
+#### iOS
+
+Edit the file `ios/Runner/Info.plist` and add this into the `<dict>` tag:
+
+```xml
+<dict>
+    ...
+    <key>GADApplicationIdentifier</key>
+    <string>ca-app-pub-0000000000000000~0000000000</string>
+    ...
+</dict>
+```
 
 ## 📱 Usage
 
@@ -62,16 +95,19 @@ Afterwards you can initialize Appodeal with the function:
 await Appodeal.initialize(
   hasConsent: true,
   adTypes: [AdType.BANNER, AdType.INTERSTITIAL, AdType.REWARD],
-  testMode: true
+  testMode: true,
+  verbose: true,
 );
 
 // At this point you are ready to display ads
 ```
-* `hasConsent` (mandatory) you must pass `true` or `false`, depending if the user granted access to be tracked in order to received better ads. See section about collecting user consent for more information.
+* `hasConsent` (mandatory) you must set either `true` or `false`, depending if the user granted access to be tracked in order to received better ads. See section about collecting user consent for more information.
 
 * `adTypes` (optional) you must set a list (of type `AdType`) with all the ad types that you would like to display in your app. If this parameter is undefined or an empty list then no ads will be loaded.
 
-* `testMode` (optional) you must set `false` (default) or `true` depending if you are running the ads during development/test or production.
+* `testMode` (optional) you must set either `true` or `false` (default) depending if you are running the ads during development/test or production.
+
+* `verbose` (optional) you must set either `true` or `false` (default) if you want Appodeal's verbose logs to be visible amongst the Flutter logs.
 
 ## 👮🏾‍♂️ Consent to track the user
 
@@ -138,12 +174,12 @@ Center(
 
 ### Interstitial, Reward & Non-Skippable ads
 
-To show an interstitial, reward or non-skippable ad, call the function `Appodeal.show()` passing the type of ad that you would like to show as a paremeter:
+To show an interstitial, reward or non-skippable ad, call the function `Appodeal.show()` passing the type of ad that you would like to show as a paremeter (mandatory) and the [placement name](https://faq.appodeal.com/en/articles/1154394-placements) (optional):
 
 ```dart
-Appodeal.show(AdType.INTERSTITIAL);  // Show an interstitial ad
-Appodeal.show(AdType.REWARD);        // Show a reward ad
-Appodeal.show(AdType.NON_SKIPPABLE); // Show a non-skippable ad
+Appodeal.show(AdType.INTERSTITIAL, placementName: "placement-name");  // Show an interstitial ad
+Appodeal.show(AdType.REWARD, placementName: "placement-name");        // Show a reward ad
+Appodeal.show(AdType.NON_SKIPPABLE, placementName: "placement-name"); // Show a non-skippable ad
 ```
 
 ## ♻️ Callbacks
@@ -188,6 +224,10 @@ The full list of events that you can track is below:
 ### Non-Skippable
 
 `onNonSkippableVideoLoaded`, `onNonSkippableVideoFailedToLoad`, `onNonSkippableVideoShown`, `onNonSkippableVideoShowFailed`, `onNonSkippableVideoFinished`, `onNonSkippableVideoClosed`, `onNonSkippableVideoExpired`.
+
+## 🙏🏾 Donations
+
+If you like this project then please consider [becoming a sponsor](https://github.com/sponsors/vegidio). Your contribution will help me dedicate more time working on bugs and new features for this and other projects.
 
 ## 📝 License
 

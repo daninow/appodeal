@@ -2,15 +2,14 @@ name: build
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - '*'
 
 jobs:
-  push:
-    if: "!contains(github.event.head_commit.message, '[skip-ci]')"
+  build:
     runs-on: ubuntu-latest
     container:
-      image:  google/dart:latest
+      image: google/dart:latest
     env:
       PUB_DEV_PUBLISH_ACCESS_TOKEN: ${{ secrets.PUB_DEV_PUBLISH_ACCESS_TOKEN }}
       PUB_DEV_PUBLISH_REFRESH_TOKEN: ${{ secrets.PUB_DEV_PUBLISH_REFRESH_TOKEN }}
@@ -36,8 +35,8 @@ jobs:
 
       - name: Check publish warnings
         run: |
-          dartfmt lib
-          dartfmt example
+          dartfmt lib --line-length 120
+          dartfmt example --line-length 120
           pub publish --dry-run
 
       - name: Upload package to pub.dev
