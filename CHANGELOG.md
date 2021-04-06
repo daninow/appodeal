@@ -1,3 +1,31 @@
+## 0.6.0
+
+* Upgraded Appodeal library to version 2.9.1.
+
+## 0.5.3
+
+* Added verbose argument to  `initialize()` call (thanks [@n00bsys0p](https://github.com/n00bsys0p)).
+
+## 0.5.2
+
+* Added missing instructions for those that don't use AdMob (thanks [@selvasoft](https://github.com/selvasoft)).
+
+## 0.5.1
+
+* Setup sponsor program.
+
+## 0.5.0
+
+* Added support for placements (thanks [@nixxxon](https://github.com/nixxxon) & [@debaserr](https://github.com/debaserr)).
+
+## 0.4.1
+
+* Upgraded Appodeal library to version 2.8.1 (thanks [@debaserr](https://github.com/debaserr)).
+
+## 0.4.0
+
+* Added new permission controls for Android & iOS (thanks [@tommybuonomo](https://github.com/tommybuonomo)).
+
 ## 0.3.2
 
 * Updated documentation with instructions to upgrade Gradle.

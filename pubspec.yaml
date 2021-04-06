@@ -1,7 +1,11 @@
 name: appodeal_flutter
 description: A Flutter plugin to display ads from Appodeal; it supports the new reqs for iOS 14+ and GDPR/CCPA consent.
-version: 0.3.2
+version: 0.6.0
 homepage: https://github.com/vegidio-flutter/appodeal
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
@@ -20,7 +24,3 @@ flutter:
         pluginClass: AppodealFlutterPlugin
       ios:
         pluginClass: AppodealFlutterPlugin
-
-environment:
-  sdk: ">=2.0.0-dev.28.0 <3.0.0"
-  flutter: ">=0.1.4 <2.0.0"
