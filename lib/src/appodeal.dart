@@ -111,17 +111,19 @@ class Appodeal {
   // region - Callbacks
   static void _setCallbacks() {
     _channel.setMethodCallHandler((call) {
+      var method;
+
       if (call.method.startsWith('onBanner')) {
-        _bannerCallback?.call(call.method);
+        method = _bannerCallback?.call(call.method);
       } else if (call.method.startsWith('onInterstitial')) {
-        _interstitialCallback?.call(call.method);
+        method = _interstitialCallback?.call(call.method);
       } else if (call.method.startsWith('onRewarded')) {
-        _rewardCallback?.call(call.method);
+        method = _rewardCallback?.call(call.method);
       } else if (call.method.startsWith('onNonSkippable')) {
-        _nonSkippableCallback?.call(call.method);
+        method = _nonSkippableCallback?.call(call.method);
       }
 
-      return null;
+      return Future.value(method);
     } as Future<dynamic> Function(MethodCall)?);
   }
 

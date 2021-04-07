@@ -155,6 +155,9 @@ PODS:
     - FBSDKCoreKit/Basics (>= 7.0.1)
   - FBSDKCoreKit/Basics (9.1.0)
   - Flutter (1.0.0)
+  - fluttertoast (0.0.2):
+    - Flutter
+    - Toast
   - Google-Mobile-Ads-SDK (8.1.0):
     - GoogleAppMeasurement (~> 7.0)
     - GoogleUserMessagingPlatform (~> 1.1)
@@ -289,6 +292,7 @@ PODS:
     - StackModules/StackFoundation
   - StartAppSDK (4.5.0)
   - TapjoySDK (12.7.0)
+  - Toast (4.0.0)
   - UnityAds (3.6.0)
   - VungleSDK-iOS (6.9.1)
   - YandexMobileAds (3.4.0):
@@ -307,6 +311,7 @@ PODS:
 DEPENDENCIES:
   - appodeal_flutter (from `.symlinks/plugins/appodeal_flutter/ios`)
   - Flutter (from `Flutter`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
 
 SPEC REPOS:
   trunk:
@@ -322,6 +327,7 @@ SPEC REPOS:
     - APDGoogleAdMobAdapter
     - APDInMobiAdapter
     - APDIronSourceAdapter
+    - APDMintegralAdapter
     - APDMyTargetAdapter
     - APDOguryAdapter
     - APDSmaatoAdapter
@@ -329,6 +335,7 @@ SPEC REPOS:
     - APDTapjoyAdapter
     - APDTwitterMoPubAdapter
     - APDUnityAdapter
+    - APDVungleAdapter
     - APDYandexAdapter
     - AppLovinSDK
     - Appodeal
@@ -357,6 +364,7 @@ SPEC REPOS:
     - StackModules
     - StartAppSDK
     - TapjoySDK
+    - Toast
     - UnityAds
     - VungleSDK-iOS
     - YandexMobileAds
@@ -367,6 +375,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/appodeal_flutter/ios"
   Flutter:
     :path: Flutter
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
 
 SPEC CHECKSUMS:
   AdColony: a655685ae4a62eb8d6ddffa5fc1436858872a9e7
@@ -393,7 +403,7 @@ SPEC CHECKSUMS:
   APDYandexAdapter: d81b84a390016b333fa5f5e300a4f38d3af5fecc
   AppLovinSDK: 768397bbd5cb5ec1179ba32a17f06ff119ebcffe
   Appodeal: 3a7741d2bd3e7a1960f659c05e040c60b43d0904
-  appodeal_flutter: 3cfd06a64650218b8c2bcc93f9447819b5e9eed3
+  appodeal_flutter: d4a2e8e6c7afa63d432e9433fb04919b0b1c5dec
   AppRollSDK: bd9e96ad026dd51ad07714a35d43da95bb882d5f
   BidMachine: 5aff266fee79f0aa49cf41bae86ae280df1a0974
   ChartboostSDK: df785becfd574915aeb8704818fa57679c099711
@@ -401,6 +411,7 @@ SPEC CHECKSUMS:
   FBAudienceNetwork: 58b4d0f2359783e5bc9ee59f138b4fda43173ac4
   FBSDKCoreKit: a00fe2efd780c195a5e09201bf51c56106245b40
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  fluttertoast: 6122fa75143e992b1d3470f61000f591a798cc58
   Google-Mobile-Ads-SDK: efb7fb74595668fbbe680f0d1c06f9a8ff694c7c
   GoogleAppMeasurement: 120eec8803fe65a4a7475fb3d3d59a61d0e1a866
   GoogleUserMessagingPlatform: b168e8c46cd8f92aa3e34b584c4ca78a411ce367
@@ -420,6 +431,7 @@ SPEC CHECKSUMS:
   StackModules: dc5ee5fc4a86e6f1b4b55e93a4a6d7e3616f7aa0
   StartAppSDK: d4680feb85ffb81d42b247f1a68affb56625ba7e
   TapjoySDK: e863ea0d0f5d3ab3f8f12d9a9af737789d9dab6d
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   UnityAds: 3f88cf3d3b11991de1025fcf0e3109fd86035fba
   VungleSDK-iOS: 09abfadbcc04e0748ce33c6bd02282e9961125ba
   YandexMobileAds: 5a22616824fb108e19e521a9051f6393e2c92b9d
