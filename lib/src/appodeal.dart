@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 import 'consent.dart';
 
@@ -80,10 +79,11 @@ class Appodeal {
   /// Use the constants in the class `AdType` to specify what ad should be loaded.
   ///
   /// Returns `true` if the ad is loaded.
-  static Future<bool?> isReadyForShow(int adType) async {
-    return _channel.invokeMethod('isReadyForShow', {
-      'adType': adType,
-    });
+  static Future<bool> isReadyForShow(int adType) async {
+    return await _channel.invokeMethod('isReadyForShow', {
+          'adType': adType,
+        }) ??
+        false;
   }
 
   /// Check if an impression is available for a certain type [adType] and placement.
@@ -91,9 +91,12 @@ class Appodeal {
   /// Use the constants in the class `AdType` to specify what ad should be shown.
   ///
   /// Returns `true` if an impression is available.
-  static Future<bool?> canShow(int adType, {String? placementName}) async {
-    return _channel.invokeMethod(
-        'canShow', {'adType': adType, 'placementName': placementName});
+  static Future<bool> canShow(int adType, {String? placementName}) async {
+    return await _channel.invokeMethod('canShow', {
+          'adType': adType,
+          'placementName': placementName,
+        }) ??
+        false;
   }
 
   /// Shows an ad of certain type [adType].
@@ -101,9 +104,12 @@ class Appodeal {
   /// Use the constants in the class `AdType` to specify what ad should be shown.
   ///
   /// Returns `true` if the ad is shown.
-  static Future<bool?> show(int adType, {String? placementName}) async {
-    return _channel.invokeMethod(
-        'show', {'adType': adType, 'placementName': placementName});
+  static Future<bool> show(int adType, {String? placementName}) async {
+    return await _channel.invokeMethod('show', {
+          'adType': adType,
+          'placementName': placementName,
+        }) ??
+        false;
   }
 
   // endregion
@@ -123,7 +129,7 @@ class Appodeal {
         method = _nonSkippableCallback?.call(call.method);
       }
 
-      return Future.value(method);
+      return null;
     } as Future<dynamic> Function(MethodCall)?);
   }
 
@@ -188,9 +194,10 @@ class Appodeal {
 
     await fetchConsentInfo();
     return await _channel.invokeMethod('shouldShowConsent', {
-      'androidAppKey': _androidAppKey,
-      'iosAppKey': _iosAppKey,
-    });
+          'androidAppKey': _androidAppKey,
+          'iosAppKey': _iosAppKey,
+        }) ??
+        false;
   }
 
   /// Displays a dialog window where the user can grant or deny access to be tracked online, according to GDPR or CCPA
@@ -209,10 +216,11 @@ class Appodeal {
   /// function does nothing. It simply returns `true` as if the authorization had already been granted.
   ///
   /// On devices with iOS 14+ it returns `true` or `false` depending whether the user granted access or not.
-  static Future<bool?> requestIOSTrackingAuthorization() async {
-    return Platform.isIOS
+  static Future<bool> requestIOSTrackingAuthorization() async {
+    var authorized = Platform.isIOS
         ? await _channel.invokeMethod('requestIOSTrackingAuthorization')
         : true;
+    return authorized ?? false;
   }
 
   /// Enable or disable the iOS location tracking.
